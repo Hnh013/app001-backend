@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 
 const authRoutes = require('./routes/auth');
 
+const listRoutes = require('./routes/list');
+
+const itemRoutes = require('./routes/item');
+
 const groceryRoutes = require('./routes/grocery');
 
 const errorController = require('./controllers/error');
@@ -28,6 +32,11 @@ app.use((req, res, next) => {
 app.use('/auth', authRoutes);
 
 app.use('/gro', groceryRoutes );
+
+app.use('/list', listRoutes );
+
+app.use('/item', itemRoutes );
+
 app.use(errorController.get404);
 app.use(errorController.get500);
 
