@@ -107,13 +107,13 @@ exports.postOnesList = async (req,res,next) => {
 
          const user_id = req.body.user_id;
          const name = req.body.name;
-         const updated_date = req.body.updated_date;
+         
          const status = req.body.status;
 
          const listDetails = {
          	user_id: user_id,
             name: name,
-            updated_date: updated_date,
+            
             status: status
         }
 
@@ -132,14 +132,12 @@ exports.editOnesList = async (req,res,next) => {
          const id = req.body.id;
          const user_id = req.body.user_id;
          const name = req.body.name;
-         const updated_date = req.body.updated_date;
          const status = req.body.status;
 
          const listDetails = {
          	id : id,
          	user_id: user_id,
             name: name,
-            updated_date: updated_date,
             status: status
         }
 

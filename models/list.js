@@ -45,8 +45,8 @@ module.exports = class List {
 
     static createOnesList(listDetails) {
     	return db.execute(
-            'INSERT INTO lists (user_id, name, updated_date, status) VALUES (?, ?, ?, ?)',
-            [listDetails.user_id, listDetails.name, listDetails.updated_date, listDetails.status]);
+            'INSERT INTO lists (user_id, name, updated_date, status) VALUES (?, ?, CURRENT_DATE, ?)',
+            [listDetails.user_id, listDetails.name, listDetails.status]);
     }
 
     
@@ -56,8 +56,8 @@ module.exports = class List {
     /////////////////////////////////////////////////////////////////////////////////////////////////////// UPDATE a list : all values
 
     static updateOnesList(listDetails) {
-    	return db.execute('UPDATE lists SET user_id = (?), name = (?), updated_date = (?), status = (?) WHERE id = (?)',
-         [listDetails.user_id, listDetails.name, listDetails.updated_date, listDetails.status, listDetails.id]);         
+    	return db.execute('UPDATE lists SET user_id = (?), name = (?), updated_date = CURRENT_DATE, status = (?) WHERE id = (?)',
+         [listDetails.user_id, listDetails.name, listDetails.status, listDetails.id]);         
     }
 
 

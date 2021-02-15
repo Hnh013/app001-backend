@@ -13,11 +13,11 @@ module.exports = class Grocery {
 
     
     static createItem(item) {
-    	return db.execute('INSERT INTO items (list_id,item_desc) VALUES (?,?)', [item.list_id, item.item_desc]);
+    	return db.execute('INSERT INTO items (list_id, item_desc) VALUES(?,?)', [item.list_id, item.item_desc, item.list_id]);
     }
 
     static editItem(item) {
-    	return db.execute('UPDATE items SET list_id = (?), item_desc = (?) WHERE id = (?)', [item.list_id, item.item_desc, item.id]);         
+    	return db.execute('BEGIN UPDATE items SET list_id = (?), item_desc = (?) WHERE id = (?)', [item.list_id, item.item_desc, item.id, item.list_id]);         
     }
 
     static deleteItem(id) {
